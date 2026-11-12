@@ -1,0 +1,116 @@
+:root {
+  --bg: #fffafa;
+  --surface: #ffffff;
+  --text: #171516;
+  --muted: #777174;
+  --line: #eadfe0;
+  --purple: #b42332;
+  --soft-purple: #fff0f1;
+  --shadow: 0 8px 28px rgba(30, 8, 10, .06);
+}
+
+.dark {
+  --bg: #151314;
+  --surface: #211c1d;
+  --text: #f7f3f3;
+  --muted: #b8adaf;
+  --line: #3c3032;
+  --purple: #ef5964;
+  --soft-purple: #392326;
+  --shadow: 0 8px 28px rgba(0, 0, 0, .24);
+}
+
+.shell.dark { min-height: 100vh; background: #151314; color: #f7f3f3; }
+.shell.dark .main-area, .shell.dark .content { background: #151314; color: #f7f3f3; }
+.shell.dark .breadcrumb b, .shell.dark .brand>span, .shell.dark .study-heading h1,
+.shell.dark .tool-view h1, .shell.dark .study-ai-panel label { color: #f7f3f3; }
+.dark .sparkle, .dark .wave, .dark .quick-icon, .dark .heading-icon,
+.dark .tip-mark, .dark .study-heading-icon, .dark .landing-reassurance span {
+  color: #ef5964 !important;
+}
+.dark .study-heading-icon, .dark .quick-card, .dark .quick-card.violet,
+.dark .quick-card.peach, .dark .quick-card.mint, .dark .quick-card.blue,
+.dark .starter-symbol, .dark .heading-icon, .dark .calendar-emoji,
+.dark .ai-head-mark, .dark .ai-welcome-icon, .dark .message-avatar {
+  background: #392326;
+  color: #ef5964;
+}
+
+body { background: var(--bg); color: var(--text); }
+.sparkle, .wave, .landing-reassurance span, .landing-hero h1 span,
+.preview-star, .quick-icon, .heading-icon, .tip-mark, .study-heading-icon { color: #b42332 !important; }
+.sidebar, .topbar, .profile, .starter-list button, .icon-button { background: var(--surface); }
+.brand-mark, .primary-button, .admin-plan-form button, .composer-foot button { background: #b42332; }
+.brand-ai, .nav-item.active, .nav-item.active .nav-icon, .new-chat, .nav-new,
+.upgrade, .text-link, .admin-back, .admin-setup>a, .admin-profile-link,
+.auth-config-link, .forgot-link, .auth-switch a, .profile-save, .study-count,
+.research-links a, .secondary-button, .exam-answer-key summary { color: #a91e2c; }
+.new-chat, .nav-item.active, .upgrade, .nav-new, .conversation-row.selected,
+.study-tool-guide, .notice, .admin-notice, .profile-status, .auth-message,
+.tip-card { background-color: #fff0f1; border-color: #f0d7da; }
+.nav-icon, .storage-icon, .heading-icon, .quick-icon, .starter-symbol,
+.study-heading-icon, .ai-head-mark, .ai-welcome-icon, .message-avatar,
+.conversation-select span:first-child, .profile-avatar, .profile .avatar,
+.profile-mini, .avatar.small, .tip-mark, .calendar-emoji, .brand-mark,
+.placeholder-icon, .status-dot, .study-storage-status .status-dot,
+.event-dot { color: #b42332; }
+.brand-mark, .profile-avatar, .profile .avatar, .profile-mini, .avatar.small,
+.quick-card, .quick-card.violet, .quick-card.peach, .quick-card.mint,
+.quick-card.blue, .violet, .peach, .mint, .blue, .lavender, .yellow, .blue-bg,
+.heading-icon, .starter-symbol, .calendar-emoji, .tip-card,
+.study-heading-icon, .study-empty>span, .study-count, .study-output,
+.study-notice, .study-tool-guide, .ai-head-mark, .ai-welcome-icon,
+.message-avatar, .conversation-row.selected, .auth-submit,
+.landing-primary, .preview-input i, .orbit-main, .landing-tool-card,
+.landing-tool-card.lavender, .landing-tool-card.peach, .landing-tool-card.mint,
+.landing-tool-icon, .tool-state.ready, .tool-state.setup {
+  background-color: #fff0f1;
+  color: #a91e2c;
+}
+.brand-mark, .primary-button, .admin-plan-form button, .composer-foot button,
+.auth-submit, .landing-primary, .orbit-main {
+  background: #b42332;
+  color: #fff;
+}
+.primary-button:hover, .admin-plan-form button:hover, .composer-foot button:hover,
+.auth-submit:hover, .landing-primary:hover { background: #941927; }
+.quick-card, .quick-card.violet, .quick-card.peach, .quick-card.mint, .quick-card.blue,
+.landing-tool-card, .landing-tool-card.lavender, .landing-tool-card.peach,
+.landing-tool-card.mint { border-color: #f0d7da; }
+.quick-card:hover, .prompt-grid button:hover, .starter-list button:hover b,
+.landing-nav nav a:hover, .landing-login:hover { color: #941927; }
+.reader-panel textarea, .study-textarea, .study-input, .notebook-title,
+.conversation-search, .chat-composer, .admin-plan-form select,
+.admin-plan-form input { outline-color: #d34a55; }
+.landing-page { --landing-ink: #171516; --landing-muted: #777174; --landing-purple: #b42332; background: #fffafa; }
+.landing-hero h1 span, .landing-nav nav a:hover, .landing-login:hover,
+.landing-tool-icon, .preview-star, .preview-greeting>span, .preview-caption-icon,
+.preview-nav.active { color: #b42332; }
+.landing-primary { box-shadow: 0 7px 18px rgba(180, 35, 50, .18); }
+.preview-greeting>span, .preview-prompt, .preview-caption-icon, .preview-nav.active { background: #fff0f1; }
+.tool-state.ready { color: #a91e2c; }
+.tool-state.setup { color: #777174; }
+.study-ai-panel-exams .study-tool-guide { background: #fff0f1; border-color: #d34a55; }
+.study-ai-panel-exams .study-tool-guide strong, .study-ai-panel-exams .study-tool-guide span,
+.study-ai-panel-search .study-tool-guide strong { color: #a91e2c; }
+.study-ai-panel-search .study-tool-guide { background: #f7f3f3; border-color: #171516; }
+.study-error, .ai-error { background: #fff0f1; color: #941927; }
+.success, .provider-badge { background: #fff0f1; color: #a91e2c; }
+.status-dot, .ollama-chip i { background: #b42332; }
+
+.dark .sidebar, .dark .topbar, .dark .profile, .dark .starter-list button,
+.dark .icon-button { background: var(--surface); }
+.dark .nav-item.active, .dark .new-chat, .dark .upgrade, .dark .nav-new,
+.dark .conversation-row.selected, .dark .prompt-grid button:hover,
+.dark .tip-card, .dark .study-tool-guide, .dark .study-output,
+.dark .study-notice, .dark .admin-notice, .dark .profile-status,
+.dark .auth-message, .dark .landing-tool-card, .dark .landing-tool-card.lavender,
+.dark .landing-tool-card.peach, .dark .landing-tool-card.mint,
+.dark .preview-greeting>span, .dark .preview-prompt, .dark .preview-caption-icon,
+.dark .preview-nav.active { background: #392326; color: #ffd9dc; border-color: #5a3439; }
+.dark .landing-page { background: #151314; color: #f7f3f3; }
+.dark .study-ai-panel-search .study-tool-guide { background: #252021; border-color: #81777a; }
+.dark .study-ai-panel-exams .study-tool-guide { background: #392326; border-color: #ef5964; }
+.dark .landing-tools, .dark .landing-preview, .dark .preview-top,
+.dark .preview-input, .dark .orbit-device, .dark .orbit-laptop { background: #211c1d; border-color: #3c3032; }
+.dark .admin-table th { background: #211c1d; }
