@@ -7,6 +7,7 @@ import "./ai-chat.css";
 import "./landing.css";
 import "./admin/admin.css";
 import "./red-theme.css";
+import { AppLocaleProvider } from "@/components/app-locale";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col"><AppLocaleProvider>{children}</AppLocaleProvider></body>
     </html>
   );
 }

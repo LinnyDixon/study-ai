@@ -36,6 +36,16 @@ Configura `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` en
 
 La publishable key está pensada para el navegador y se usa junto con políticas RLS. Nunca pongas una clave `service_role` o `secret` en una variable pública.
 
+## Generador de imágenes
+
+La generación usa la API de imágenes de OpenAI desde una ruta privada del servidor. Para activarla:
+
+1. Agrega `OPENAI_API_KEY` como variable de entorno privada en `.env.local` para desarrollo o en la configuración del servidor de producción. No uses el prefijo `NEXT_PUBLIC_`.
+2. En Supabase → SQL Editor, ejecuta `supabase/migrations/202611130004_image_generator.sql`. Crea la biblioteca privada, sus políticas de acceso y la cuota diaria basada en el plan.
+3. Reinicia el servidor local o redespliega la aplicación.
+
+`OPENAI_IMAGE_MODEL` es opcional; por defecto usa `gpt-image-2`. La interfaz ofrece calidad baja, media y alta; la API admite dimensiones cuadradas, apaisadas y verticales con estas calidades. La generación queda bloqueada hasta que existan la clave y la migración.
+
 ## Verificaciones
 
 ```bash

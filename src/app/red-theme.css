@@ -36,6 +36,26 @@
   color: #ef5964;
 }
 
+/* Keep the home dashboard inside the available width on scaled or narrow displays. */
+.content,
+.lower-grid,
+.focus-panel,
+.right-stack {
+  min-width: 0;
+}
+
+@media (max-width: 1100px) {
+  .lower-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .welcome h1 {
+    font-size: clamp(1.65rem, 3.2vw, 2.15rem);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+}
+
 body { background: var(--bg); color: var(--text); }
 .sparkle, .wave, .landing-reassurance span, .landing-hero h1 span,
 .preview-star, .quick-icon, .heading-icon, .tip-mark, .study-heading-icon { color: #b42332 !important; }
