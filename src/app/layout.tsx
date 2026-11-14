@@ -27,7 +27,14 @@ export const metadata: Metadata = {
   description: "Lee tus materiales y conversa con una IA de estudio. Un espacio para aprender desde el celular o la computadora.",
   applicationName: "STUDY AI",
   manifest: "/manifest.webmanifest",
-  icons: { icon: "/study-ai-icon.svg", apple: "/study-ai-icon.svg" },
+  icons: {
+    icon: [
+      { url: "/study-ai-icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/study-ai-icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  appleWebApp: { capable: true, title: "STUDY AI", statusBarStyle: "default" },
   robots: { index: true, follow: true },
   openGraph: { siteName: "STUDY AI", type: "website", locale: "es_UY" },
 };
