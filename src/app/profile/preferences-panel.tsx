@@ -62,9 +62,11 @@ export function PreferencesPanel({ initial }: { initial: Preferences }) {
 
   async function toggleNotifications(enabled: boolean) {
     if (enabled) {
-      if (!("Notification" in window)) { setIsError(true); setMessage(copy.unsupportedNotifications); return; }
+      if (!("Notification" in window) || !("serviceWorker" in navigator)) { setIsError(true); setMessage(copy.unsupportedNotifications); return; }
       const permission = Notification.permission === "granted" ? "granted" : await Notification.requestPermission();
       if (permission !== "granted") { setIsError(true); setMessage(copy.deniedNotifications); return; }
+      try { await navigator.serviceWorker.register("/sw.js", { scope: "/" }); }
+      catch { setIsError(true); setMessage(copy.unsupportedNotifications); return; }
     }
     await save("notifications", enabled);
   }

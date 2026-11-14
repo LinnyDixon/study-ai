@@ -92,7 +92,17 @@ export default function ExamSessionPage() {
         const { data } = await supabase.from("user_preferences").select("preferences").eq("user_id", auth.user.id).maybeSingle();
         const preferences = data?.preferences && typeof data.preferences === "object" ? data.preferences as Record<string, unknown> : {};
         if (preferences.notifications === true && "Notification" in window && Notification.permission === "granted") {
-          new Notification("Parcial terminado", { body: `Terminaste un parcial de ${session.questions.length} preguntas.` });
+          if ("serviceWorker" in navigator) {
+            const registration = await navigator.serviceWorker.register("/sw.js", { scope: "/" });
+            await registration.showNotification("Parcial terminado", {
+              body: `Terminaste un parcial de ${session.questions.length} preguntas.`,
+              icon: "/study-ai-icon-192.png",
+              badge: "/study-ai-icon-192.png",
+              data: { url: "/app" },
+            });
+          } else {
+            new Notification("Parcial terminado", { body: `Terminaste un parcial de ${session.questions.length} preguntas.` });
+          }
         }
         if (preferences.sounds === true && "AudioContext" in window) {
           const context = new AudioContext();
