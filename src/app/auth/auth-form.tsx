@@ -5,6 +5,7 @@ import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useAppLocale } from "@/components/app-locale";
 import type { AppLanguage } from "@/lib/app-languages";
+import { getAuthCallbackUrl } from "@/lib/auth-redirect";
 
 type Props = { mode: "sign-in" | "sign-up"; nextPath?: string; isSupabaseConfigured: boolean };
 
@@ -36,7 +37,7 @@ export function AuthForm({ mode, nextPath = "/app", isSupabaseConfigured }: Prop
         const name = String(formData.get("name") || "").trim();
         const { data, error } = await supabase.auth.signUp({
           email, password,
-          options: { data: { display_name: name }, emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(nextPath)}` },
+          options: { data: { display_name: name }, emailRedirectTo: getAuthCallbackUrl(nextPath) },
         });
         if (error) throw error;
         if (!data.session) setMessage(c.signupSent);
@@ -60,7 +61,7 @@ export function AuthForm({ mode, nextPath = "/app", isSupabaseConfigured }: Prop
       const supabase = createClient();
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
-        options: { redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(nextPath)}` },
+        options: { redirectTo: getAuthCallbackUrl(nextPath) },
       });
       if (error) throw error;
     } catch (error) {

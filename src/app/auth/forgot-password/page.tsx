@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { getAuthCallbackUrl } from "@/lib/auth-redirect";
 
 export default function ForgotPasswordPage() {
   const [message, setMessage] = useState("");
@@ -17,7 +18,7 @@ export default function ForgotPasswordPage() {
       if (typeof email !== "string" || !email.trim()) throw new Error("Escribe tu correo electrónico.");
       const supabase = createClient();
       const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {
-        redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent("/auth/update-password")}`,
+        redirectTo: getAuthCallbackUrl("/auth/update-password"),
       });
       if (error) throw error;
       setMessage("Si el correo está registrado, recibirás un enlace para restablecer tu contraseña.");
