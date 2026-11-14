@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.linnydixon.studyai",
+        "sha256_cert_fingerprints": ["C9:3E:2C:6C:96:25:FB:59:73:D1:3B:A0:31:C8:1B:6B:59:C9:81:8B:55:A3:4A:4A:68:84:79:2B:D5:D2:9A:6B"]
+      }
+    }]
